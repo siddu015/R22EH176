@@ -36,7 +36,7 @@ npm start
 ### Frontend
 
 ![URL Shortener](frontend/public/screenshots/01-url-shortener-page.png)
-![Concurrent-Url-Processing](frontend/public/screenshots/03-concurrent-url-processing)
+![Concurrent-Url-Processing](frontend/public/screenshots/03-concurrent-url-processing.png)
 ![Statistics](frontend/public/screenshots/02-statistics-page.png)
 
 ### Backend API Testing

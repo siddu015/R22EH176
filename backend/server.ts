@@ -1,8 +1,10 @@
 import express from 'express';
+import cors from 'cors';
 import { randomBytes } from 'crypto';
 import { Log } from '../logging-middleware/index.ts';
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 const urls = new Map();
@@ -28,8 +30,9 @@ app.post('/shorturls', async (req, res) => {
   }
 
   const expiry = new Date(Date.now() + validity * 60 * 1000);
+  const creationDate = new Date();
   
-  urls.set(code, { url, expiry });
+  urls.set(code, { url, expiry, creationDate });
   analytics.set(code, { clicks: 0, details: [] });
   
   Log("backend", "info", "service", `Generated shortcode: ${code}`);
@@ -68,7 +71,7 @@ app.get('/shorturls/:shortcode', (req, res) => {
   const data = urls.get(shortcode);
   const stats = analytics.get(shortcode);
   
-  if (!data || !stats) {
+  if (!data) {
     Log("backend", "error", "handler", "Stats not found");
     return res.status(404).json({ error: "Not found" });
   }
@@ -78,7 +81,7 @@ app.get('/shorturls/:shortcode', (req, res) => {
   res.json({
     totalClicks: stats.clicks,
     originalUrl: data.url,
-    creationDate: new Date().toISOString(),
+    creationDate: data.creationDate.toISOString(),
     expiryDate: data.expiry.toISOString(),
     clickDetails: stats.details
   });

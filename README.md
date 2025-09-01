@@ -36,10 +36,22 @@ npm start
 ### Frontend
 
 ![URL Shortener](frontend/public/screenshots/01-url-shortener-page.png)
+![Concurrent-Url-Processing](frontend/public/screenshots/03-concurrent-url-processing)
 ![Statistics](frontend/public/screenshots/02-statistics-page.png)
 
-### Backend
+### Backend API Testing
 
-![API Testing](backend/screenshots/01-post-create-shorturl.png)
+#### POST - Create Short URL
+![POST Create URL](backend/screenshots/01-post-create-shorturl.png)
+
+#### GET - Statistics
+![GET Statistics](backend/screenshots/02-get-statistics.png)
+
+#### GET - Redirect
+![GET Redirect](backend/screenshots/03-get-redirect.png)
+
+#### API Response Details
+![API Response Details](backend/screenshots/04-api-response-details.png)
+
 
 **Student**: R22EH176 - Vennapusa Srinath Reddy

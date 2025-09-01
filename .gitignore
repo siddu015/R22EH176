@@ -1,0 +1,7 @@
+# Sensitive files - DO NOT COMMIT
+PROJECT_RULES.md
+URL_SHORTENER_REQUIREMENTS.md
+secrets.md
+
+# Node.j
+node_modules/
